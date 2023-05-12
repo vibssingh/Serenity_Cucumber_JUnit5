@@ -10,12 +10,12 @@ import net.thucydides.core.annotations.Step;
 
 public class StepDashboardPage extends PageObject {
 
-	@FindBy(id = "welcome")
+	@FindBy(xpath = "//*[@id='app']/div[1]/div[1]/header/div[1]/div[1]/span/h6")
 	WebElementFacade dashboardText;
 
 	@Step("Successful login")
 	public void loginVerify() {
 		String dashboardTitle = dashboardText.getText();
-		assertThat(dashboardTitle, containsString("Welcome"));
+		assertThat(dashboardTitle, containsString("Dashboard"));
 	}
 }

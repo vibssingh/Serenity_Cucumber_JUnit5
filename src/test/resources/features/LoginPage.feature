@@ -17,11 +17,11 @@ Feature: Login to HRM
     Then User should be able to see error message '<errorMessage>'
       
    Examples:
-    |username  |password  |errorMessage                    |
-    |admin     |admin     |Invalid credentials             |
-    |          |admin123  |Username cannot be empty        | 
-    |Admin     |          |Password cannot be empty        |
-    |          |          |Username can be empty        |
+    |username  |password       |errorMessage              |
+    |admin     |admin          |Invalid credentials       |
+    |abc       |admin123       |Invalid credentials       |
+    |abc       |abc123         |Invalid credentials       |
+    |1$£"      | 45£"%         |Invalid credentials       |
  
    @ForgetPassword  
    Scenario: Verify Forget Password Functionality

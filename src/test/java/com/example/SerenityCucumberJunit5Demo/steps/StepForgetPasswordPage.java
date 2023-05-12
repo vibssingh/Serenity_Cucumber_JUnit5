@@ -7,7 +7,7 @@ import net.thucydides.core.annotations.Step;
 
 public class StepForgetPasswordPage extends PageObject {
 
-	@FindBy(id = "forgotPasswordLink")
+	@FindBy(xpath = "//*[@id='app']/div[1]/div[1]/div/form/h6")
 	WebElementFacade forgetLink;
 
 	@Step("Verify Forget Password Page ")

@@ -7,19 +7,19 @@ import net.thucydides.core.annotations.Step;
 
 public class StepLoginPage extends PageObject {
 
-	@FindBy(name = "txtUsername")
+	@FindBy(name = "username")
 	WebElementFacade username;
 
-	@FindBy(name = "txtPassword")
+	@FindBy(name = "password")
 	WebElementFacade password;
 
-	@FindBy(name = "Submit")
+	@FindBy(xpath = "//*[@id='app']/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button")
 	WebElementFacade submitButton;
 
-	@FindBy(id = "spanMessage")
+	@FindBy(xpath = "//*[@id='app']/div[1]/div/div[1]/div/div[2]/div[2]/div/div[1]/div[1]/p")
 	WebElementFacade errorMessage;
 
-	@FindBy(id = "forgotPasswordLink")
+	@FindBy(xpath = "//*[@id='app']/div[1]/div/div[1]/div/div[2]/div[2]/form/div[4]/p")
 	WebElementFacade linkText;
 
 	@Step("Enter Username")
