@@ -20,7 +20,7 @@ test:
     when: always
     name: "Serenity Report"
     paths:
-    - /target/site/serenity/
+    - /target/site/*
     expire_in: 24 h
 
 
