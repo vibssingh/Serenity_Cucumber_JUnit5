@@ -21,7 +21,7 @@ jobs:
         cache: maven
 
     - name: Install Chrome for Testing and its driver
-        run:|
+      run: |
           npm i puppeteer
           npx @puppeteer/browsers install chrome@stable
     
