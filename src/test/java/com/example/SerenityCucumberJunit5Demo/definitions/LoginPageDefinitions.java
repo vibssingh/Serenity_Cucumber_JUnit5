@@ -10,7 +10,7 @@ import com.example.SerenityCucumberJunit5Demo.steps.StepLoginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.thucydides.core.annotations.Steps;
+import net.serenitybdd.annotations.Steps;
 
 public class LoginPageDefinitions {
 

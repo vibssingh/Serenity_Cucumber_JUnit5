@@ -12,21 +12,22 @@
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>3.2.3</serenity.version>
-        <serenity.cucumber.version>3.2.3</serenity.cucumber.version>
-        <junit.jupiter.version>5.8.0</junit.jupiter.version>
-        <junit.vintage.version>5.8.0</junit.vintage.version>
-        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
-        <maven.failsafe.plugin.version>3.0.0-M5</maven.failsafe.plugin.version>
-  </properties>
-  
-  <repositories>
+        <serenity.version>4.0.28</serenity.version>
+        <junit.jupiter.version>5.10.1</junit.jupiter.version>
+        <junit.vintage.version>5.10.1</junit.vintage.version>
+        <junit-platform-suite.version>1.10.1</junit-platform-suite.version>
+        <cucumber-junit-platform-engine.version>7.15.0</cucumber-junit-platform-engine.version>
+        <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.surefire.plugin.version>3.2.1</maven.surefire.plugin.version>
+        <maven.failsafe.plugin.version>3.2.1</maven.failsafe.plugin.version>
+        <tags></tags>
+    </properties>
+
+    <repositories>
         <repository>
             <snapshots>
                 <enabled>false</enabled>
@@ -47,8 +48,7 @@
         </pluginRepository>
     </pluginRepositories>
 
- <dependencies>
-
+    <dependencies>
         <!-- JUnit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -65,27 +65,40 @@
         </dependency>
 
         <!-- Serenity -->
-         <dependency>
+        <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-core</artifactId>
             <version>${serenity.version}</version>
             <scope>test</scope>
         </dependency>
-        
-         <dependency>
+
+        <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-cucumber</artifactId>
-            <version>${serenity.cucumber.version}</version>
+            <version>${serenity.version}</version>
             <scope>test</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-screenplay-webdriver</artifactId>
             <version>${serenity.version}</version>
             <scope>test</scope>
         </dependency>
-               
+
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>${junit-platform-suite.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
+            <version>${cucumber-junit-platform-engine.version}</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 
@@ -127,31 +140,31 @@
                     <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
-           <plugin>
-               <groupId>net.serenity-bdd.maven.plugins</groupId>
-               <artifactId>serenity-maven-plugin</artifactId>
-               <version>${serenity.version}</version>
-               <dependencies> 
-                  <dependency>
-                       <groupId>net.serenity-bdd</groupId>
-                       <artifactId>serenity-single-page-report</artifactId>
-                       <version>${serenity.version}</version>
-                  </dependency>                
-               </dependencies>
-               <configuration>
-                   <tags>${tags}</tags>
-                   <reports>single-page-html</reports> 
-               </configuration>
-               <executions>
-                  <execution>
-                      <id>serenity-reports</id>
-                      <phase>post-integration-test</phase>
-                      <goals>
-                          <goal>aggregate</goal>
-                      </goals>
-                   </execution>
-               </executions>
-           </plugin>
+            <plugin>
+                <groupId>net.serenity-bdd.maven.plugins</groupId>
+                <artifactId>serenity-maven-plugin</artifactId>
+                <version>${serenity.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.serenity-bdd</groupId>
+                        <artifactId>serenity-single-page-report</artifactId>
+                        <version>${serenity.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <tags>${tags}</tags>
+                    <reports>single-page-html</reports>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>serenity-reports</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>aggregate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>

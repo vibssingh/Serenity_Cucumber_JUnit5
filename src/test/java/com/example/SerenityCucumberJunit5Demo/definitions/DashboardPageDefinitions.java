@@ -2,8 +2,8 @@ package com.example.SerenityCucumberJunit5Demo.definitions;
 
 import com.example.SerenityCucumberJunit5Demo.steps.StepDashboardPage;
 
-import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
+import net.serenitybdd.annotations.Step;
+import net.serenitybdd.annotations.Steps;
 
 public class DashboardPageDefinitions {
 
