@@ -20,10 +20,8 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Install Chrome for Testing and its driver
-      run: |
-          npm i puppeteer
-          npx @puppeteer/browsers install chrome@stable
+    - uses: browser-actions/setup-chrome@latest
+    - run: chrome --version
     
     - name: Build with Maven
       run: mvn clean verify
